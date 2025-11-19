@@ -109,5 +109,11 @@ git config --global push.default current
 git config --global push.autoSetupRemote true
 git config --global init.defaultBranch main
 
+echo "[*] Creating ssh-keygen in $HOME/.ssh/ for github..."
+ssh-keygen -b 4096 -t rsa -C "tahatsahin@gmail.com" -f $HOME/.ssh/id_rsa_gh -N ""
+
+echo "	- You can copy your public ssh below."
+cat $HOME/.ssh/id_rsa_gh.pub 
+
 echo
 echo "[✓] All done. run 'exec \$SHELL' to see the changes."
