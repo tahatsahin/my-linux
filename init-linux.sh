@@ -70,9 +70,9 @@ echo "[*] Updating .bashrc"
 
 backup_file "$HOME/.bashrc"
 if [ -f ".bashrc" ]; then
-	ln -s ".bashrc" "$HOME/.bashrc"
+	cp --remove-destination ".bashrc" "$HOME/.bashrc"
 elif [ -f "bashrc" ]; then
-	ln -s "bashrc" "$HOME/.bashrc"
+	cp --remove-destination "bashrc" "$HOME/.bashrc"
 else
 	echo "	! No bashrc found here, skipped."
 fi
@@ -82,9 +82,9 @@ if [ "$INSTALL_ZSH" = true ]; then
 
 	backup_file "$HOME/.zshrc"
 	if [ -f ".zshrc" ]; then
-		ln -s ".zshrc" "$HOME/.zshrc"
+		cp --remove-destination ".zshrc" "$HOME/.zshrc"
 	elif [ -f "zshrc" ]; then
-		ln -s "zshrc" "$HOME/.zshrc"
+		cp --remove-destination "zshrc" "$HOME/.zshrc"
 	else
 		"	! No zshrc found here, skipped."
 	fi
