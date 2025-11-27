@@ -77,9 +77,17 @@ else
 	echo "	! No bashrc found here, skipped."
 fi
 
+backup_file "$HOME/.vimrc"
+if [ -f ".vimrc" ]; then
+  cp --remove-destination ".vimrc" "$HOME/.vimrc"
+elif [ -f "vimrc" ]; then
+  cp --remove-destination "vimrc" "$HOME/.vimrc"
+else
+  echo "  ! No vimrc found here, skipped."
+fi
+
 if [ "$INSTALL_ZSH" = true ]; then
 	echo "[*] Installing .zshrc"
-
 	backup_file "$HOME/.zshrc"
 	if [ -f ".zshrc" ]; then
 		cp --remove-destination ".zshrc" "$HOME/.zshrc"
